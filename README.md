@@ -9,18 +9,20 @@ BOOKING has ---- SHOW + list of seats booked + user + status
 
 
 
-==================
+|  for ADMIN use  |         endpoint         |                              method                             |
+|-----------------|--------------------------|-----------------------------------------------------------------|
+| TheatreResource |  /createTheatre          | createTheatre(theatreName)                                      |
+| TheatreResource |  /attachScreenInTheatre  | attachScreenInTheatre(screenName, theatreId)                    |
+| TheatreResource |  /attachSeatInScreen     | attachSeatInScreen(rowNo, seatNo, screenId)                     |
+| MovieResource   |  /createMovie            | createMovie(movieName)                                          |
+| ShowResource    |  /createShow             | createShow(movieId, screenId, startTime, durationInSeconds)     |
 
-ADMIN:											</br>
-TheatreResource::	/createTheatre				</br>
-TheatreResource::	/attachScreenInTheatre		</br>
-TheatreResource::	/attachSeatInScreen			</br>
-MovieResource::		/createMovie					</br>
-ShowResource::		/createShow					</br>
 
 
-USER:											</br>
-ShowResource::		/getAvailableSeats			</br>
-BookingResource:	:	/createBooking				</br>
-PaymentsResource::	/paymentFailed				</br>
-PaymentsResource::	/paymentSuccess				</br>
+|   for USER use   |         endpoint         |                    method                     |
+|------------------|--------------------------|-----------------------------------------------|
+| ShowResource     |  /getAvailableSeats      | getAvailableSeats(showId)                     |
+| BookingResource  |  /createBooking          | createBooking(userId, showId, seatsIdList)    |
+| PaymentsResource |  /paymentFailed          | paymentFailed(bookingId, userId)              |
+| PaymentsResource |  /paymentSuccess         | paymentSuccess(bookingId, userId)             |
+
